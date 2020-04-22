@@ -1,0 +1,14 @@
+*.bcf
+*.fls
+*.pdf
+*.cfg
+*.aux
+*.blg
+*.log
+*.run.xml
+*.toc
+*.rbd_latexmk
+*.out
+*.synctex.gz
+*.xdv
+.DS_Store
