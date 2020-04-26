@@ -1,3 +1,6 @@
 .DS_Store
 *.pdf
 *.fdb_latexmk
+*.sty
+*.bbl
+*.ipynb
