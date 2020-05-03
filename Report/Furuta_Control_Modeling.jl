@@ -4,14 +4,20 @@ using Plots
 import Polynomials
 
 
-J0hat = .0025
-J2hat = .0001
 L1 = .5
+l1 = .1
 l2 = .3
+m1 = .2
 m2 = .2
 b1 = .0001
 b2 = .0001
 g = 9.8
+J1 = .0025
+J2 = .001
+J0hat = J1 + m1*l1^2 + m2*L1^2
+J2hat = J2 + m2*l2^2
+
+
 
 A31 = 0
 A32 = g*m2^2*l2^2*L1/(J0hat*J2hat-m2^2*L1^2*l2^2)
@@ -92,9 +98,12 @@ tspan = (0.0,5)
 z0 = [0 (π - θ0*π/180) 0 0.]
 p = [J0hat,J2hat,L1,l2,m2,b1,b2,g, R, K]
 prob = ODEProblem(ode2,z0,tspan,p)
-sol = DifferentialEquations.solve(prob)
+sol = DifferentialEquations.solve(prob,BS3())
 plot(sol, vars = (0,2))
 plot(sol, vars = (0,3))
+# This is doing a built in adaptive time step Runge_Kutta
+
+
 
 ### NOTE this one does both arms
 let sol = sol
